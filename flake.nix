@@ -2,11 +2,11 @@
   description = "A simple script";
 
   outputs = { self, nixpkgs }: {
-    defaultPackage.x86_64-linux = self.packages.x86_64-linux.my-script;
+    defaultPackage.aarch64-darwin = self.packages.aarch64-darwin.my-script;
 
-    packages.x86_64-linux.my-script =
+    packages.aarch64-darwin.my-script =
       let
-        pkgs = import nixpkgs { system = "x86_64-linux"; };
+        pkgs = import nixpkgs { system = "aarch64-darwin"; };
       in
       pkgs.writeShellScriptBin "my-script" ''
         DATE=$(ddate +'the %e of %B, %Y')
